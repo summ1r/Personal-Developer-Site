@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "summer-dev-site"
-  }
+    "default": "summer-dev-site",
+    "build": "summer-dev-site"
+  },
+  "targets": {},
+  "etags": {}
 }
