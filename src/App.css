@@ -1,7 +1,13 @@
 .App {
   text-align: center;
-  height: 100%;
-  border: solid red 5px;
+  
+  position:fixed;
+  top:0;
+  left: 0;
+  width:100%;
+  height:100%;
+  
+  border: 10px solid green;
 }
 
 .App-logo {
@@ -39,42 +45,61 @@
 }
 
 /** My css **/
-#Name {
-  align-self: center;
-  opacity: 1;
+
+.row{
+  border: 2px dotted black;
 }
 
-#AppContainer{
-  position: relative;
+.col {
+  border: 1px dotted white;
 }
 
-#CenterContainer {
-  margin-left: 33%;
-  margin-right: 33%;
-  margin-top: 15%;
-  margin-bottom: 0%;
+/** Alignment CSS **/
+.Left{
+  /*   background-color: red;
+  border: 2px solid black;
+ */
+  float: left;
 }
 
-#TimeContainer {
-  margin: 1%;
-  width: 8%;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+.Mid{
+  /* background-color: green;
+  border: 2px solid black; */
+  float: none;
 }
 
-#GithubIcon {
-  content: url(images/github-mark.png);
+.Right{
+  /* background-color: red;
+  border: 2px solid black; */
+  float: right;
 }
 
-#LinkedInIcon {
-  content: url(images/linkedin_icon_135436.png);
+.HeightTop{
+  /* background-color: yellow;
+  border: 5px solid black; */
+
+  vertical-align:top;
+  height: 25%;
 }
 
-#RepoIcon {
-  content: url(images/webDevicon.png);
+.HeightMid{
+  /* background-color: aqua;
+  border: 5px solid black; */
+
+  vertical-align: middle;
+  height: 50%;
 }
 
+.HeightBot{ 
+  /* background-color: violet;
+  border: 5px solid black; */
+
+  vertical-align: bottom;
+  height: 25%;
+}
+
+
+/** Elements  **/
 .bubbleBox {
   /* background-color: rgba(83, 83, 83, 0.4); */
   background-color: rgba(90, 90, 90, 0.8); 
@@ -98,3 +123,35 @@
   margin-left: 10%;
   margin-right: 10%;
 }
+
+.HomeContainer {
+  position:fixed;
+  top:0;
+  left: 0;
+  width:100%;
+  height:100%;
+  max-width: 100%;
+  border: 5px solid red;
+
+  align-items: center;
+}
+
+/** ID's **/
+
+#Name {
+  align-self: center;
+  opacity: 1;
+}
+
+#GithubIcon {
+  content: url(images/github-mark.png);
+}
+
+#LinkedInIcon {
+  content: url(images/linkedin_icon_135436.png);
+}
+
+#RepoIcon {
+  content: url(images/webDevicon.png);
+}
+
