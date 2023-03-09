@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  height: 100%;
+  border: solid red 5px;
 }
 
 .App-logo {
@@ -42,16 +44,23 @@
   opacity: 1;
 }
 
+#AppContainer{
+  position: relative;
+}
+
 #CenterContainer {
-  background-color: rgba(83, 83, 83, 0.4);
   margin-left: 33%;
   margin-right: 33%;
   margin-top: 15%;
   margin-bottom: 0%;
-  
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-radius: 30px;
+}
+
+#TimeContainer {
+  margin: 1%;
+  width: 8%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 #GithubIcon {
@@ -64,6 +73,14 @@
 
 #RepoIcon {
   content: url(images/webDevicon.png);
+}
+
+.bubbleBox {
+  /* background-color: rgba(83, 83, 83, 0.4); */
+  background-color: rgba(90, 90, 90, 0.8); 
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 30px;
 }
 
 .iconImg {

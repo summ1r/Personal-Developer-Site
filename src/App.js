@@ -5,7 +5,8 @@ function App() {
   return (
     <div className="App">
       <div id="AppContainer">
-        <div id="CenterContainer">
+
+        <div id="CenterContainer" class="bubbleBox">
           <h1 id="Name">Summer Marshall - Software developer</h1>
           <a href="https://github.com/summ1r" target="_blank" rel="noreferrer">
             <button class="Icon"><image id="GithubIcon" class="iconImg"></image> </button></a>
@@ -14,6 +15,14 @@ function App() {
           <a href="https://github.com/summ1r/Personal-Developer-Site" target="_blank" rel="noreferrer">
             <button class="Icon"><image id="RepoIcon" class="iconImg"></image> </button></a>
         </div>
+
+        <div id="TimeContainer" class="bubbleBox">
+          <h2>2:19 PM</h2>  
+        </div>
+
+        <h3> hello frends</h3>
+
+
       </div>
     </div>
   );
