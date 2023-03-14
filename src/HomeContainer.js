@@ -6,19 +6,29 @@ function HomeContainer(){
     return (
         <Container className ="HomeContainer">
             <Row className="HeightTop">
-                <Col className="Left">          1</Col>
-                <Col xs={6} className="Mid">   2</Col>
-                <Col className="Right">         3</Col> 
+                <Col className="Left"></Col>
+                <Col xs={6} className="Mid"></Col>
+                <Col className="Right"></Col> 
             </Row>
             <Row className="HeightMid">
-                <Col className="Left">  4</Col>
-                <Col xs={6} className="Mid">   5</Col>
-                <Col className="Right"> 6</Col>
+                <Col className="Mid"> 
+                    <Container id="CenterContainer">
+                        <Row><h1 id="Name">Summer Marshall - Software developer</h1></Row>
+                        <Row>
+                            <Col><a href="https://github.com/summ1r" target="_blank" rel="noreferrer">
+                        <button class="Icon"><image id="GithubIcon" class="iconImg"></image> </button></a></Col>
+                            <Col><a href="https://www.linkedin.com/in/summer-marshall-852620205/" target="_blank" rel="noreferrer">
+                        <button class="Icon"><image id="LinkedInIcon" class="iconImg"></image> </button></a></Col>
+                            <Col> <a href="https://github.com/summ1r/Personal-Developer-Site" target="_blank" rel="noreferrer">
+                        <button class="Icon"><image id="RepoIcon" class="iconImg"></image> </button></a></Col>
+                        </Row>
+                    </Container>
+                </Col>
             </Row>
             <Row className="HeightBot">
-                <Col className="Left">  7</Col>
-                <Col xs={6} className="Mid">   8</Col>
-                <Col className="Right"> 9</Col>
+                <Col className="Left"></Col>
+                <Col xs={6} className="Mid"></Col>
+                <Col className="Right"></Col>
             </Row>
 
         </Container>
