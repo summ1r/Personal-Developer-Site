@@ -10,7 +10,7 @@ Time = timeNow(Time);
 var SolarTimes;
 var lat;
 var long;
-var timeToSunset;
+var timeToSunset = "Unloaded";
 
 /* Will Prompt user to enable location services */
 if (navigator.geolocation) {
@@ -33,7 +33,15 @@ function locationSuccess(pos){
     var ss = Math.floor(msec / 1000);
     msec -= ss * 1000;
 
+    if(hh.toString.length != 2){
+        hh = "0"+hh;
+    }
+    if(mm.toString.length != 2){
+        mm = "0"+mm;
+    }
+
     timeToSunset = (hh + ":" + mm);
+    console.log("Time to sunset: "+timeToSunset);
 
 }
 
@@ -79,7 +87,7 @@ function HomeContainer(){
                         </Row>
                         <Row>
                             <Col><h4 class="TimeText">Sunset in {timeToSunset}</h4></Col>
-                        </Row> 
+                        </Row>
 
                     </Container>
 
