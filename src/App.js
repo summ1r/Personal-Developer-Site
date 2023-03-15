@@ -6,10 +6,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-        <HomeContainer>
-        
-
-        </HomeContainer>
+        <HomeContainer />
     </div>
   );
 }

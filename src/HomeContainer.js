@@ -1,6 +1,9 @@
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import SolarClock from './SolarClock.js';
+
 
 function HomeContainer(){
     return (
@@ -28,7 +31,11 @@ function HomeContainer(){
             <Row className="HeightBot">
                 <Col className="Left"></Col>
                 <Col xs={6} className="Mid"></Col>
-                <Col className="Right"></Col>
+                <Col className="Right">
+
+                        <SolarClock />
+
+                </Col>
             </Row>
 
         </Container>
