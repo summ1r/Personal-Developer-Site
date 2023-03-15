@@ -1,53 +1,8 @@
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import timeNow from './timeCycle.js';
-var SunCalc = require('suncalc');
-
-
-var Time = "";
-Time = timeNow(Time);
-var SolarTimes;
-var lat;
-var long;
-var timeToSunset = "Unloaded";
-
-/* Will Prompt user to enable location services */
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(locationSuccess, locationFailed);
-} else {
-    alert('This page requires GeoLocation, please enable it in your browser.');
-}
-
-/* If accepted */
-function locationSuccess(pos){
-    lat = pos.coords.latitude;
-    long = pos.coords.longitude;
-    SolarTimes = SunCalc.getTimes(new Date(), lat, long);
-
-    var msec = SolarTimes.sunset - new Date();
-    var hh = Math.floor(msec / 1000 / 60 / 60);
-    msec -= hh * 1000 * 60 * 60;
-    var mm = Math.floor(msec / 1000 / 60);
-    msec -= mm * 1000 * 60;
-    var ss = Math.floor(msec / 1000);
-    msec -= ss * 1000;
-
-    if(hh.toString.length != 2){
-        hh = "0"+hh;
-    }
-    if(mm.toString.length != 2){
-        mm = "0"+mm;
-    }
-
-    timeToSunset = (hh + ":" + mm);
-    console.log("Time to sunset: "+timeToSunset);
-
-}
-
-function locationFailed(){
-    alert('This page requires GeoLocation for the full experience, please enable it in your browser.');
-}
+import SolarClock from './SolarClock.js';
 
 
 function HomeContainer(){
@@ -77,19 +32,8 @@ function HomeContainer(){
                 <Col className="Left"></Col>
                 <Col xs={6} className="Mid"></Col>
                 <Col className="Right">
-                    <Container id="SolarContainer" className='bubbleBox'>
-                        <Row>
-                            <Col><image id="SunIcon" class="iconImg"></image></Col>
-                        </Row>
 
-                        <Row>
-                            <Col><h1 class="TimeText" id="time"> {Time} </h1></Col>
-                        </Row>
-                        <Row>
-                            <Col><h4 class="TimeText">Sunset in {timeToSunset}</h4></Col>
-                        </Row>
-
-                    </Container>
+                        <SolarClock />
 
                 </Col>
             </Row>
