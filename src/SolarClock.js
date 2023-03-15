@@ -8,18 +8,30 @@ import {msecToTime} from './timeCycle.js';
 
 var SunCalc = require('suncalc');
 var SolarTimes;
+var TomorrowSolarTimes;
 var lat;
 var long;
 
 
 function SolarClock(){
     const [time, setTime] = useState("00:00");
-    const [timeToSunset, setTimeToSunset] = useState("00:00");
+    const [timeToSolarEvent, setTimeToSolarEvent] = useState("00:00");
+    const [solarEvent, setSolarEvent] = useState("Sunset");
 
     function refreshClock(){
         var timeStr = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
         setTime(timeStr);
-        setTimeToSunset(msecToTime(SolarTimes.sunset - new Date()));
+
+        var msecToSunset = SolarTimes.sunset - new Date();
+        if(msecToSunset < 0) {
+            setSolarEvent("Sunrise");
+            var msecToSunrise = TomorrowSolarTimes.sunrise - new Date();
+            setTimeToSolarEvent(msecToTime(msecToSunrise));
+        }
+        else{
+            setSolarEvent("Sunset");
+            setTimeToSolarEvent(msecToTime(msecToSunset));
+        }
     }
 
     
@@ -37,6 +49,7 @@ function SolarClock(){
         lat = pos.coords.latitude;
         long = pos.coords.longitude;
         SolarTimes = SunCalc.getTimes(new Date(), lat, long);
+        TomorrowSolarTimes = SunCalc.getTimes(new Date((new Date()).valueOf() + 1000*3600*24), lat, long)
     }
 
     function locationFailed(){
@@ -61,7 +74,7 @@ function SolarClock(){
                 <Col><h1 class="TimeText" id="time"> {time} </h1></Col>
             </Row>
             <Row>
-                <Col><h4 class="TimeText">Sunset in {timeToSunset}</h4></Col>
+                <Col><h4 class="TimeText">{solarEvent} in {timeToSolarEvent}</h4></Col>
             </Row>
         </Container>
     );
