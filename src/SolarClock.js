@@ -49,7 +49,7 @@ function SolarClock(){
         lat = pos.coords.latitude;
         long = pos.coords.longitude;
         SolarTimes = SunCalc.getTimes(new Date(), lat, long);
-        TomorrowSolarTimes = SunCalc.getTimes(new Date((new Date()).valueOf() + 1000*3600*24), lat, long)
+        TomorrowSolarTimes = SunCalc.getTimes(new Date((new Date()).valueOf() + 1000*3600*24), lat, long);
     }
 
     function locationFailed(){
@@ -58,7 +58,7 @@ function SolarClock(){
 
 
     useEffect(() => {
-        const timerId = setInterval(refreshClock, 1000);
+        const timerId = setInterval(refreshClock, 2000);
         return function cleanup() {
           clearInterval(timerId);
         };
