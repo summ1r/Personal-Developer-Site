@@ -164,6 +164,11 @@
   background-color: rgba(83, 83, 83, 0.8);
 }
 
+#LunarContainer {
+  background-color: rgba(83, 83, 83, 0.8);
+
+}
+
 #GithubIcon {
   content: url(images/github-mark.png);
 }
@@ -182,4 +187,12 @@
   min-width: 50px;
   height: 100%;
   
+}
+
+#MoonIcon {
+  content: url(images/moon.png);
+  margin-top: 10px;
+  width: 15%;
+  min-width: 50px;
+  height: 85%;
 }
