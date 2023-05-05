@@ -74,7 +74,7 @@ function SolarClock(){
                 <Col><h1 class="TimeText" id="time"> {time} </h1></Col>
             </Row>
             <Row>
-                <Col><h4 class="TimeText">{solarEvent} in {timeToSolarEvent}</h4></Col>
+                <Col><h4>{solarEvent} in {timeToSolarEvent}</h4></Col>
             </Row>
         </Container>
     );

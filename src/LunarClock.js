@@ -30,7 +30,58 @@ function LunarClock(){
         
         LunarPosition = SunCalc.getMoonPosition(new Date(), lat, long);
         setLunarAltitude( ((LunarPosition.altitude * 180) / Math.PI).toPrecision(4));
-        setLunarDirection((((LunarPosition.azimuth * 180) / Math.PI)+180).toPrecision(4));
+
+        var degrees = (((LunarPosition.azimuth * 180) / Math.PI)+180).toPrecision(4);
+        var cardinal;
+        const azimuths = new Map([
+            ["N", 0],
+            ["NbE", 11.25],
+            ["NNE", 22.50],
+            ["NEbN", 33.75],
+            ["NE", 45.00],
+            ["NEbE", 56.25],
+            ["ENE", 67.50],
+            ["EbN", 78.75],
+            ["E", 90.00],
+            ["EbS", 101.25],
+            ["ESE", 112.50],
+            ["SEbE", 123.75],
+            ["SE", 135.00],
+            ["SEbS", 146.25],
+            ["SSE", 157.50],
+            ["SbE", 168.75],
+            ["S", 180.00],
+            ["SbW", 191.25],
+            ["SSW", 202.50],
+            ["SWbS", 213.75],
+            ["SW", 225.00],
+            ["SWbW", 236.25],
+            ["WSW", 247.50],
+            ["WbS", 258.75],
+            ["W", 270.00],
+            ["WbN", 281.25],
+            ["WNW", 292.50],
+            ["NWbW", 303.75],
+            ["NW", 315.00],
+            ["NWbN", 326.25],
+            ["NNW", 337.50],
+            ["NbW", 348.75],
+        ]);
+        if (degrees>=azimuths.get("NbW")+5){ //catching edge case
+            cardinal = "N";
+        }
+        else{
+        for (const key of azimuths.keys()) {
+            if(key==="SSW"){console.log(degrees);}
+            const value = azimuths.get(key);
+            const upper = value + 5;
+            const lower = value - 5;
+            if(degrees >= lower && degrees <= upper){
+                cardinal = key;
+            }
+          }
+        }
+        setLunarDirection(cardinal+"("+degrees+"°)");
     
         var phaseNum = LunarIllumination.phase;
         if(phaseNum < 0.05) { setPhase("New Moon")}
@@ -106,13 +157,13 @@ function LunarClock(){
 
             <Row>
                 <Col>
-                    <h3 class="TimeText">{phase}({fraction})</h3>
-                    <h3 class="TimeText">Altitude: {lunarAltitude}, Direction: {lunarDirection}</h3>
+                    <h4>{phase}({fraction})</h4>
+                    <h4>Altitude: {lunarAltitude}°, Direction: {lunarDirection}</h4>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <h4 class="TimeText">{lunarEvent} in {timeToLunarEvent}</h4>
+                    <h4>{lunarEvent} in {timeToLunarEvent}</h4>
                 </Col>
             </Row>
         </Container>
